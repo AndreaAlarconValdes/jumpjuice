@@ -1,9 +1,17 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
+import Menu from './pages/Menu'
 
 function App() {
 
   return (
-   <h1>Hola</h1>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/menu" element={<Menu />} />
+      </Routes>
+    </>
   )
 }
 

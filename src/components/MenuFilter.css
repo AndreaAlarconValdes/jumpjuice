@@ -3,33 +3,38 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding-bottom: 2rem;
   position: sticky;
   top: 10%;
+  margin-bottom: 6rem;
 }
 
 .filter-button {
   cursor: pointer;
-  background-color: #f3f4f6;
-  font-family: "Inter", sans-serif;
-  color: #374151;
-  font-size: 16px;
-  padding: 12px 24px;
+  background-color: transparent;
+  
+  font-family: 'Ranchers', cursive;
+  letter-spacing: 1.5px; /* más separación entre letras */
+  word-spacing: 4px; 
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 8px 20px;
   border-radius: 26px;
   border: none;
-  text-transform: capitalize;
   transition: 0.2s ease-in-out;
+  color:  var(--btn-color);
+  
 }
 
 .filter-button:hover {
-  background-color: #73ac2c;
+  background-color: var(--btn-color);
   color: white;
 }
 
 .filter-button.selected {
-  background-color: #73ac2c;
+  background-color: var(--btn-color);
   color: white;
 }
+
 
 @media (max-width: 750px) {
 .menu-filter {

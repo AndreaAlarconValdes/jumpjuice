@@ -26,17 +26,18 @@ const Navbar = () => {
                 <Link to="/" onClick={closeMenu}>
                     Home
                 </Link>
-                <Link to="/about" onClick={closeMenu}>
-                    About Us
-                </Link>
+               
                 <Link to="/menu" onClick={closeMenu}>
-                   Our Menu
+                   Menu
                 </Link>
                    <Link to="/menu" onClick={closeMenu}>
                    Merchandise
                 </Link>
                    <Link to="/menu" onClick={closeMenu}>
                    Our Stores
+                </Link>
+                <Link to="/about" onClick={closeMenu}>
+                    About Us
                 </Link>
                 <Link to="/contact" onClick={closeMenu}>
                     Contact

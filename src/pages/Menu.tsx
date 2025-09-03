@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { MenuFilter } from "../components/MenuFilter";
 import "./Menu.css";
-import { menuArray } from "../data/constants";
+import { smoothies } from "../data/constants";
 import Modal from "../components/Modal";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState("smoothies");
 
-
-
   const filteredItems =
     filter === "smoothies"
-      ? menuArray
-      : menuArray.filter((item) => item.category === filter);
+      ? smoothies
+      : smoothies.filter((item) => item.category === filter);
+
   return (
     <div className="complete-menu">
       <MenuFilter
@@ -28,24 +27,44 @@ const Menu = () => {
         onChange={(category) => setFilter(category)}
       />
       <div className="section menu-section">
-        {filteredItems.map((item) => (
-          <button onClick={() => setIsOpen(true)} className="menu-modal-btn">
-            <div className="menu-card">
-              <div className="image-container"
-              style={{
-                backgroundColor: item.color
-              }}>
+        {filteredItems.map((item) => {
+          return (
+            <button
+              key={item.title}
+              onClick={() => setIsOpen(true)}
+              className="menu-modal-btn"
+            >
+              <div
+                className="menu-card"
+                style={{
+                  "--color": item.color,
+                  "--dark-color": item.darkColor,
+                } as React.CSSProperties}
+             
+              >
                 <img
                   src={item.imageSrc}
                   alt={item.title}
                   className="smoothie-img"
                 />
+
+                <img
+                  className="hover-smoothie-img"
+                  src={item.hoverImageSrc}
+                  alt={`${item.title} hover`}
+                />
+
+                <div className="text-content">
+                  <h3
+                 >{item.title}</h3>
+                  <p>{item.ingredients}</p>
+                </div>
               </div>
-              <h3>{item.title}</h3>
-            </div>
-          </button>
-        ))}
+            </button>
+          );
+        })}
       </div>
+
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
